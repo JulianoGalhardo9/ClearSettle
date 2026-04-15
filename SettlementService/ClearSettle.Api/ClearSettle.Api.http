@@ -1,0 +1,6 @@
+@ClearSettle.Api_HostAddress = http://localhost:5027
+
+GET {{ClearSettle.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -180,3 +180,4 @@
 /Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Api/bin/Debug/net9.0/NSwag.Generation.dll
 /Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Api/bin/Debug/net9.0/NSwag.Generation.AspNetCore.dll
 /Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Api/bin/Debug/net9.0/YamlDotNet.dll
+/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Api/bin/Debug/net9.0/RabbitMQ.Client.dll

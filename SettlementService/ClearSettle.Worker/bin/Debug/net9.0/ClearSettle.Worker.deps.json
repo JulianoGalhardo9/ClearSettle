@@ -941,7 +941,8 @@
         "dependencies": {
           "ClearSettle.Application": "1.0.0",
           "ClearSettle.Domain": "1.0.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.15"
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.15",
+          "RabbitMQ.Client": "7.2.1"
         },
         "runtime": {
           "ClearSettle.Infrastructure.dll": {

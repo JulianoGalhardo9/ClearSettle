@@ -26,13 +26,26 @@ namespace ClearSettle.Worker
                     using (var scope = _serviceProvider.CreateScope())
                     {
                         var useCase = scope.ServiceProvider.GetRequiredService<ProcessSettlementUseCase>();
-                        
-                        await useCase.ExecuteAsync();
+                        var settledTrades = await useCase.ExecuteAsync();
+
+                        // SE houver operações liquidadas, avisa o mundo (A API)
+                        if (settledTrades.Any())
+                        {
+                            // Importante: Adicione `using ClearSettle.Infrastructure.Messaging;` lá no topo do arquivo!
+                            var publisher = new ClearSettle.Infrastructure.Messaging.RabbitMqPublisher();
+                            
+                            foreach (var trade in settledTrades)
+                            {
+                                // Publica em uma fila nova, exclusiva para avisos de status
+                                await publisher.PublishAsync(trade, "trade_settled_queue");
+                                _logger.LogInformation($"Aviso de liquidação enviado para a fila: {trade.Id}");
+                            }
+                        }
                     }
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError($"Erro crítico no Job de Liquidação: {ex.Message}");
+                    _logger.LogError(ex, "Erro ao processar liquidações D+2");
                 }
             }
         }

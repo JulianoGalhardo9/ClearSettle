@@ -15,6 +15,8 @@ builder.Services.AddScoped<ClearSettle.Infrastructure.Messaging.RabbitMqPublishe
 builder.Services.AddTransient<RegisterPendingTradeUseCase>();
 
 builder.Services.AddControllers();
+builder.Services.AddSignalR();
+builder.Services.AddHostedService<ClearSettle.Api.Workers.TradeUpdateListener>();
 
 builder.Services.AddCors(options =>
 {
@@ -22,7 +24,8 @@ builder.Services.AddCors(options =>
     {
         policy.WithOrigins("http://localhost:5173")
               .AllowAnyHeader()
-              .AllowAnyMethod();
+              .AllowAnyMethod()
+              .AllowCredentials();
     });
 });
 
@@ -44,4 +47,5 @@ app.UseAuthorization();
 app.UseCors("AllowReactApp");
 app.MapControllers();
 
+app.MapHub<ClearSettle.Api.Hubs.TradeHub>("/tradeHub");
 app.Run();

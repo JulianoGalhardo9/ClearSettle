@@ -1,0 +1,12 @@
+/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/bin/Debug/net9.0/ClearSettle.Domain.deps.json
+/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/bin/Debug/net9.0/ClearSettle.Domain.dll
+/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/bin/Debug/net9.0/ClearSettle.Domain.pdb
+/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/obj/Debug/net9.0/ClearSettle.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/obj/Debug/net9.0/ClearSettle.Domain.AssemblyInfoInputs.cache
+/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/obj/Debug/net9.0/ClearSettle.Domain.AssemblyInfo.cs
+/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/obj/Debug/net9.0/ClearSettle.Domain.csproj.CoreCompileInputs.cache
+/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/obj/Debug/net9.0/ClearSettle.Domain.sourcelink.json
+/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/obj/Debug/net9.0/ClearSettle.Domain.dll
+/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/obj/Debug/net9.0/refint/ClearSettle.Domain.dll
+/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/obj/Debug/net9.0/ClearSettle.Domain.pdb
+/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/obj/Debug/net9.0/ref/ClearSettle.Domain.dll

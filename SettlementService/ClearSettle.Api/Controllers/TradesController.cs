@@ -1,5 +1,7 @@
+using System;
+using System.Threading.Tasks;
 using ClearSettle.Application.DTOs;
-using ClearSettle.Application.UseCases; 
+using ClearSettle.Infrastructure.Messaging;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClearSettle.Api.Controllers
@@ -8,29 +10,25 @@ namespace ClearSettle.Api.Controllers
     [Route("api/[controller]")]
     public class TradesController : ControllerBase
     {
-        private readonly RegisterPendingTradeUseCase _registerTradeUseCase;
+        private readonly RabbitMqPublisher _messagePublisher;
 
-        public TradesController(RegisterPendingTradeUseCase registerTradeUseCase)
+        public TradesController(RabbitMqPublisher messagePublisher)
         {
-            _registerTradeUseCase = registerTradeUseCase;
+            _messagePublisher = messagePublisher;
         }
 
         [HttpPost]
-        public async Task<IActionResult> RegisterTrade([FromBody] RegisterTradeInput input)
+        public async Task<IActionResult> EnqueueTrade([FromBody] RegisterTradeInput input)
         {
             try
             {
-                await _registerTradeUseCase.ExecuteAsync(input);
+                await _messagePublisher.PublishAsync(input, "trade_pending_queue");
 
-                return Created("", new { Message = "Operação registrada com sucesso e pendente de liquidação." });
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { Error = ex.Message });
+                return Accepted("", new { Message = "Ordem recebida e enviada para a fila de processamento." });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Error = "Erro interno no servidor ao processar a operação.", Details = ex.Message });
+                return StatusCode(500, new { Error = "Erro ao enfileirar a operação.", Details = ex.Message });
             }
         }
     }

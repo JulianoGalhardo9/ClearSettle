@@ -26,7 +26,7 @@ namespace ClearSettle.Worker
             var factory = new ConnectionFactory() 
             { 
                 HostName = "localhost", 
-                Port = 5673, 
+                Port = 5672, 
                 UserName = "admin", 
                 Password = "admin123" 
             };

@@ -11,6 +11,7 @@ builder.Services.AddDbContext<SettlementDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<ITradeRepository, TradeRepository>();
+builder.Services.AddScoped<ClearSettle.Infrastructure.Messaging.RabbitMqPublisher>();
 builder.Services.AddTransient<RegisterPendingTradeUseCase>();
 
 builder.Services.AddControllers();

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClearSettle.Worker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0405ed7f219c324b45871ff673d851292284d4d")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClearSettle.Worker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClearSettle.Worker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

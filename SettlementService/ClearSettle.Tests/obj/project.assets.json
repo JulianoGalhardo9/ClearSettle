@@ -948,11 +948,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/julianogalhardo/ClearSettle/ClearSettle.Tests/ClearSettle.Tests.csproj",
+      "projectUniqueName": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Tests/ClearSettle.Tests.csproj",
       "projectName": "ClearSettle.Tests",
-      "projectPath": "/Users/julianogalhardo/ClearSettle/ClearSettle.Tests/ClearSettle.Tests.csproj",
+      "projectPath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Tests/ClearSettle.Tests.csproj",
       "packagesPath": "/Users/julianogalhardo/.nuget/packages/",
-      "outputPath": "/Users/julianogalhardo/ClearSettle/ClearSettle.Tests/obj/",
+      "outputPath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Tests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/julianogalhardo/.nuget/NuGet/NuGet.Config"

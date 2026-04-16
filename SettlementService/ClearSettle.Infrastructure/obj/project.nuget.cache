@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Wha3Yw3rtbE=",
+  "dgSpecHash": "AnLciCJ8F10=",
   "success": true,
-  "projectFilePath": "/Users/julianogalhardo/ClearSettle/ClearSettle.Infrastructure/ClearSettle.Infrastructure.csproj",
+  "projectFilePath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Infrastructure/ClearSettle.Infrastructure.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

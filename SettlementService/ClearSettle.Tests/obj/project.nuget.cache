@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TZVWSNJ3kzY=",
+  "dgSpecHash": "bICQB8O7X0k=",
   "success": true,
-  "projectFilePath": "/Users/julianogalhardo/ClearSettle/ClearSettle.Tests/ClearSettle.Tests.csproj",
+  "projectFilePath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Tests/ClearSettle.Tests.csproj",
   "expectedPackageFiles": [
     "/Users/julianogalhardo/.nuget/packages/coverlet.collector/6.0.2/coverlet.collector.6.0.2.nupkg.sha512",
     "/Users/julianogalhardo/.nuget/packages/microsoft.codecoverage/17.12.0/microsoft.codecoverage.17.12.0.nupkg.sha512",

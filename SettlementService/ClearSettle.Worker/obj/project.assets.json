@@ -1491,11 +1491,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/julianogalhardo/ClearSettle/ClearSettle.Worker/ClearSettle.Worker.csproj",
+      "projectUniqueName": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Worker/ClearSettle.Worker.csproj",
       "projectName": "ClearSettle.Worker",
-      "projectPath": "/Users/julianogalhardo/ClearSettle/ClearSettle.Worker/ClearSettle.Worker.csproj",
+      "projectPath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Worker/ClearSettle.Worker.csproj",
       "packagesPath": "/Users/julianogalhardo/.nuget/packages/",
-      "outputPath": "/Users/julianogalhardo/ClearSettle/ClearSettle.Worker/obj/",
+      "outputPath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Worker/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/julianogalhardo/.nuget/NuGet/NuGet.Config"

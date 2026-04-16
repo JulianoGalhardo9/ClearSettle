@@ -1,3 +1,5 @@
+using ClearSettle.Domain.Entities;
+
 namespace ClearSettle.Domain.Interfaces
 {
     public interface ITradeRepository

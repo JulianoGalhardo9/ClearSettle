@@ -80,11 +80,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/julianogalhardo/ClearSettle/ClearSettle.Api/ClearSettle.Api.csproj",
+      "projectUniqueName": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Api/ClearSettle.Api.csproj",
       "projectName": "ClearSettle.Api",
-      "projectPath": "/Users/julianogalhardo/ClearSettle/ClearSettle.Api/ClearSettle.Api.csproj",
+      "projectPath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Api/ClearSettle.Api.csproj",
       "packagesPath": "/Users/julianogalhardo/.nuget/packages/",
-      "outputPath": "/Users/julianogalhardo/ClearSettle/ClearSettle.Api/obj/",
+      "outputPath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/julianogalhardo/.nuget/NuGet/NuGet.Config"

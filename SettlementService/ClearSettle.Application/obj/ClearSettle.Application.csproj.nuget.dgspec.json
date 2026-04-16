@@ -1,17 +1,80 @@
 {
   "format": 1,
   "restore": {
-    "/Users/julianogalhardo/ClearSettle/ClearSettle.Application/ClearSettle.Application.csproj": {}
+    "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Application/ClearSettle.Application.csproj": {}
   },
   "projects": {
-    "/Users/julianogalhardo/ClearSettle/ClearSettle.Application/ClearSettle.Application.csproj": {
+    "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Application/ClearSettle.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/julianogalhardo/ClearSettle/ClearSettle.Application/ClearSettle.Application.csproj",
+        "projectUniqueName": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Application/ClearSettle.Application.csproj",
         "projectName": "ClearSettle.Application",
-        "projectPath": "/Users/julianogalhardo/ClearSettle/ClearSettle.Application/ClearSettle.Application.csproj",
+        "projectPath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Application/ClearSettle.Application.csproj",
         "packagesPath": "/Users/julianogalhardo/.nuget/packages/",
-        "outputPath": "/Users/julianogalhardo/ClearSettle/ClearSettle.Application/obj/",
+        "outputPath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/julianogalhardo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/ClearSettle.Domain.csproj": {
+                "projectPath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/ClearSettle.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/julianogalhardo/.dotnet/sdk/9.0.312/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/ClearSettle.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/ClearSettle.Domain.csproj",
+        "projectName": "ClearSettle.Domain",
+        "projectPath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/ClearSettle.Domain.csproj",
+        "packagesPath": "/Users/julianogalhardo/.nuget/packages/",
+        "outputPath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/julianogalhardo/.nuget/NuGet/NuGet.Config"

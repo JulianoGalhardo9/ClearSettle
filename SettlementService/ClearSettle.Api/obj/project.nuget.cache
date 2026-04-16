@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qUg6yLUXWiQ=",
+  "dgSpecHash": "QpzAoTpMt4M=",
   "success": true,
-  "projectFilePath": "/Users/julianogalhardo/ClearSettle/ClearSettle.Api/ClearSettle.Api.csproj",
+  "projectFilePath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Api/ClearSettle.Api.csproj",
   "expectedPackageFiles": [
     "/Users/julianogalhardo/.nuget/packages/microsoft.aspnetcore.openapi/9.0.14/microsoft.aspnetcore.openapi.9.0.14.nupkg.sha512",
     "/Users/julianogalhardo/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"

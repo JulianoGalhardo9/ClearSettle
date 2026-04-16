@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3B9Xlk5JWzA=",
+  "dgSpecHash": "uysNwN9cvQY=",
   "success": true,
-  "projectFilePath": "/Users/julianogalhardo/ClearSettle/ClearSettle.Worker/ClearSettle.Worker.csproj",
+  "projectFilePath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Worker/ClearSettle.Worker.csproj",
   "expectedPackageFiles": [
     "/Users/julianogalhardo/.nuget/packages/microsoft.extensions.configuration/9.0.14/microsoft.extensions.configuration.9.0.14.nupkg.sha512",
     "/Users/julianogalhardo/.nuget/packages/microsoft.extensions.configuration.abstractions/9.0.14/microsoft.extensions.configuration.abstractions.9.0.14.nupkg.sha512",

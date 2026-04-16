@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/julianogalhardo/ClearSettle/ClearSettle.Domain/ClearSettle.Domain.csproj",
+      "projectUniqueName": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/ClearSettle.Domain.csproj",
       "projectName": "ClearSettle.Domain",
-      "projectPath": "/Users/julianogalhardo/ClearSettle/ClearSettle.Domain/ClearSettle.Domain.csproj",
+      "projectPath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/ClearSettle.Domain.csproj",
       "packagesPath": "/Users/julianogalhardo/.nuget/packages/",
-      "outputPath": "/Users/julianogalhardo/ClearSettle/ClearSettle.Domain/obj/",
+      "outputPath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/julianogalhardo/.nuget/NuGet/NuGet.Config"

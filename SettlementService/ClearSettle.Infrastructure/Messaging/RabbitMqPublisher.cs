@@ -1,6 +1,5 @@
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using RabbitMQ.Client;
 
 namespace ClearSettle.Infrastructure.Messaging
@@ -16,7 +15,12 @@ namespace ClearSettle.Infrastructure.Messaging
 
             await channel.QueueDeclareAsync(queue: queueName, durable: true, exclusive: false, autoDelete: false, arguments: null);
 
-            var json = JsonSerializer.Serialize(message);
+            var options = new JsonSerializerOptions 
+            { 
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase 
+            };
+
+            var json = JsonSerializer.Serialize(message, options);
             var body = Encoding.UTF8.GetBytes(json);
 
             await channel.BasicPublishAsync(exchange: string.Empty, routingKey: queueName, body: body);

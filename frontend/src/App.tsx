@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { api } from './services/api';
 import type { Trade } from './types/Trade';
-import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr'; 
+import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
+import { VolumeChart } from './components/VolumeChart'; // Importação correta
 
 function App() {
   const [trades, setTrades] = useState<Trade[]>([]);
@@ -11,18 +12,17 @@ function App() {
     fetchTrades();
 
     const connection = new HubConnectionBuilder()
-      .withUrl('http://localhost:5000/tradeHub') 
+      .withUrl('http://localhost:5027/tradeHub') 
       .configureLogging(LogLevel.Information)
-      .withAutomaticReconnect() 
+      .withAutomaticReconnect()
       .build();
 
     connection.start()
-      .then(() => console.log('🟢 Conectado ao túnel WebSocket do SignalR!'))
-      .catch(err => console.error('🔴 Erro ao conectar no SignalR: ', err));
+      .then(() => console.log('🟢 SignalR Conectado'))
+      .catch(err => console.error('🔴 Erro SignalR: ', err));
 
     connection.on('ReceiveTradeUpdate', (messageJson: string) => {
       const updatedTrade: Trade = JSON.parse(messageJson);
-      
       setTrades(currentTrades => 
         currentTrades.map(trade => 
           trade.id === updatedTrade.id ? updatedTrade : trade
@@ -40,75 +40,81 @@ function App() {
       const response = await api.get('/Trades');
       setTrades(response.data);
     } catch (error) {
-      console.error("Erro ao buscar operações:", error);
+      console.error("Erro API:", error);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="container mx-auto p-8">
-      <div className="flex justify-between items-center mb-6">
+    <div className="container mx-auto p-8 max-w-6xl">
+      <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-blue-400">ClearSettle Backoffice</h1>
-          <p className="text-gray-400 mt-2">Painel de Conciliação D+2 (Real-Time)</p>
+          <h1 className="text-4xl font-extrabold text-blue-500 tracking-tight">ClearSettle <span className="text-white font-light">Backoffice</span></h1>
+          <p className="text-gray-400 mt-1">Monitoramento de liquidação em tempo real (D+2)</p>
         </div>
-        {/* O botão ainda fica aqui por garantia, mas quase não precisaremos dele! */}
         <button 
           onClick={fetchTrades}
-          className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-md font-medium transition-colors"
+          className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-lg font-semibold transition-all shadow-lg active:scale-95"
         >
-          Atualizar Dados
+          Sincronizar
         </button>
       </div>
 
       {loading ? (
-        <p className="text-gray-400 animate-pulse">Carregando operações...</p>
-      ) : (
-        <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-700">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-gray-900 border-b border-gray-700">
-                <th className="p-4 text-sm font-semibold text-gray-300">ID</th>
-                <th className="p-4 text-sm font-semibold text-gray-300">Ativo</th>
-                <th className="p-4 text-sm font-semibold text-gray-300">Qtd</th>
-                <th className="p-4 text-sm font-semibold text-gray-300">Preço</th>
-                <th className="p-4 text-sm font-semibold text-gray-300">Data</th>
-                <th className="p-4 text-sm font-semibold text-gray-300">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {trades.length === 0 ? (
-                <tr>
-                  <td colSpan={6} className="p-4 text-center text-gray-500">Nenhuma operação encontrada.</td>
-                </tr>
-              ) : (
-                trades.map((trade) => (
-                  <tr key={trade.id} className="border-b border-gray-700 hover:bg-gray-750 transition-all duration-500">
-                    <td className="p-4 text-sm text-gray-400 font-mono">{trade.id.substring(0, 8)}...</td>
-                    <td className="p-4 text-sm font-bold text-white">{trade.tickerSymbol}</td>
-                    <td className="p-4 text-sm text-gray-300">{trade.quantity}</td>
-                    <td className="p-4 text-sm text-gray-300">
-                      {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(trade.price)}
-                    </td>
-                    <td className="p-4 text-sm text-gray-400">
-                      {new Date(trade.tradeDate).toLocaleString('pt-BR')}
-                    </td>
-                    <td className="p-4 text-sm">
-                      <span className={`px-2 py-1 rounded text-xs font-semibold transition-colors duration-500 ${
-                        trade.status === 'Settled' ? 'bg-green-900 text-green-300 shadow-[0_0_10px_rgba(34,197,94,0.3)]' : 
-                        trade.status === 'Pending' ? 'bg-yellow-900 text-yellow-300' : 
-                        'bg-red-900 text-red-300'
-                      }`}>
-                        {trade.status}
-                      </span>
-                    </td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
+        <div className="flex justify-center items-center h-64">
+           <p className="text-gray-500 text-xl animate-pulse">Conectando aos sistemas de custódia...</p>
         </div>
+      ) : (
+        <>
+          {/* AQUI É ONDE O VOLUME CHART É USADO, RESOLVENDO O ERRO DE ESLINT */}
+          <VolumeChart trades={trades} />
+
+          <div className="bg-gray-800 rounded-xl shadow-2xl overflow-hidden border border-gray-700">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="bg-gray-900/50 border-b border-gray-700">
+                  <th className="p-4 text-xs uppercase tracking-wider font-bold text-gray-500">ID</th>
+                  <th className="p-4 text-xs uppercase tracking-wider font-bold text-gray-500">Ativo</th>
+                  <th className="p-4 text-xs uppercase tracking-wider font-bold text-gray-500 text-right">Qtd</th>
+                  <th className="p-4 text-xs uppercase tracking-wider font-bold text-gray-500 text-right">Preço</th>
+                  <th className="p-4 text-xs uppercase tracking-wider font-bold text-gray-500">Data</th>
+                  <th className="p-4 text-xs uppercase tracking-wider font-bold text-gray-500">Status</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-700">
+                {trades.length === 0 ? (
+                  <tr>
+                    <td colSpan={6} className="p-12 text-center text-gray-500 italic">Aguardando entrada de novas ordens via RabbitMQ...</td>
+                  </tr>
+                ) : (
+                  trades.map((trade) => (
+                    <tr key={trade.id} className="hover:bg-gray-700/30 transition-colors">
+                      <td className="p-4 text-sm text-gray-500 font-mono">#{trade.id.substring(0, 5)}</td>
+                      <td className="p-4 text-sm font-bold text-white">{trade.tickerSymbol}</td>
+                      <td className="p-4 text-sm text-gray-300 text-right">{trade.quantity.toLocaleString()}</td>
+                      <td className="p-4 text-sm text-gray-300 text-right font-mono">
+                        {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(trade.price)}
+                      </td>
+                      <td className="p-4 text-sm text-gray-400">
+                        {new Date(trade.tradeDate).toLocaleTimeString('pt-BR')}
+                      </td>
+                      <td className="p-4">
+                        <span className={`px-3 py-1 rounded-full text-[10px] uppercase font-black tracking-widest ${
+                          trade.status === 'Settled' ? 'bg-green-500/10 text-green-400 border border-green-500/20' : 
+                          trade.status === 'Pending' ? 'bg-yellow-500/10 text-yellow-400 border border-yellow-500/20' : 
+                          'bg-red-500/10 text-red-400 border border-red-500/20'
+                        }`}>
+                          {trade.status}
+                        </span>
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        </>
       )}
     </div>
   );

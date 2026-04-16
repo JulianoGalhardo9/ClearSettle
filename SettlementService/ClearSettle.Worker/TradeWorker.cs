@@ -23,21 +23,21 @@ namespace ClearSettle.Worker
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            var factory = new ConnectionFactory() 
-            { 
-                HostName = "localhost", 
-                Port = 5672, 
-                UserName = "admin", 
-                Password = "admin123" 
+            var factory = new ConnectionFactory()
+            {
+                HostName = "localhost",
+                Port = 5672,
+                UserName = "admin",
+                Password = "admin123"
             };
-            
+
             _connection = await factory.CreateConnectionAsync(stoppingToken);
             _channel = await _connection.CreateChannelAsync(cancellationToken: stoppingToken);
-            
+
             await _channel.QueueDeclareAsync(queue: QueueName, durable: true, exclusive: false, autoDelete: false, arguments: null, cancellationToken: stoppingToken);
 
             var consumer = new AsyncEventingBasicConsumer(_channel);
-            
+
             consumer.ReceivedAsync += async (model, ea) =>
             {
                 var body = ea.Body.ToArray();
@@ -45,7 +45,11 @@ namespace ClearSettle.Worker
 
                 try
                 {
-                    var input = JsonSerializer.Deserialize<RegisterTradeInput>(message);
+                    var options = new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    };
+                    var input = JsonSerializer.Deserialize<RegisterTradeInput>(message, options);
 
                     if (input != null)
                     {
@@ -57,7 +61,7 @@ namespace ClearSettle.Worker
                     }
 
                     _logger.LogInformation($"Operação recebida via RabbitMQ e salva: {message}");
-                    
+
                     await _channel.BasicAckAsync(deliveryTag: ea.DeliveryTag, multiple: false, cancellationToken: stoppingToken);
                 }
                 catch (Exception ex)

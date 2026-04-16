@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClearSettle.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21b755ae13ac46d1a6dd497e8d8005006738f81a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7580900d1d890ec98f0b272ef0338872c05cdf7")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClearSettle.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClearSettle.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

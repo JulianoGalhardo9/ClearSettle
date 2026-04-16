@@ -1,8 +1,8 @@
 using ClearSettle.Application.UseCases;
 using ClearSettle.Domain.Interfaces;
-using ClearSettle.Infrastructure.Data; 
-using ClearSettle.Infrastructure.Data.Repositories; 
-using Microsoft.EntityFrameworkCore; 
+using ClearSettle.Infrastructure.Data;
+using ClearSettle.Infrastructure.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,19 +11,22 @@ builder.Services.AddDbContext<SettlementDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<ITradeRepository, TradeRepository>();
-
 builder.Services.AddTransient<RegisterPendingTradeUseCase>();
 
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+builder.Services.AddOpenApiDocument(configure =>
+{
+    configure.Title = "ClearSettle API";
+    configure.Version = "v1";
+});
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseOpenApi(); 
+    app.UseSwaggerUi(); 
 }
 
 app.UseAuthorization();

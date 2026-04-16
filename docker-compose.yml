@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: clearsettle_db
+    environment:
+      - ACCEPT_EULA=Y 
+      - SA_PASSWORD=ClearSettle@2026!
+      - MSSQL_PID=Developer 
+    ports:
+      - "1433:1433" 
+    volumes:
+      - sqlserver_data:/var/opt/mssql 
+  rabbitmq:
+    image: rabbitmq:3-management-alpine 
+    container_name: clearsettle_broker
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin123
+    ports:
+      - "5672:5672" 
+      - "15672:15672"
+
+volumes:
+  sqlserver_data:

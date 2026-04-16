@@ -4,9 +4,6 @@ using ClearSettle.Infrastructure.Data;
 using ClearSettle.Infrastructure.Data.Repositories;
 using ClearSettle.Worker;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 var host = Host.CreateDefaultBuilder(args)
     .ConfigureServices((hostContext, services) =>
@@ -18,6 +15,10 @@ var host = Host.CreateDefaultBuilder(args)
         services.AddScoped<RegisterPendingTradeUseCase>();
 
         services.AddHostedService<TradeWorker>();
+
+        services.AddScoped<ProcessSettlementUseCase>();
+
+        services.AddHostedService<SettlementJobWorker>();
     })
     .Build();
 

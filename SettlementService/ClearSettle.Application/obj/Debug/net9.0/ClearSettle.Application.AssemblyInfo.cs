@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClearSettle.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7580900d1d890ec98f0b272ef0338872c05cdf7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df826f0901c3edcb89c274b7e72fef088fa90bbe")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClearSettle.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClearSettle.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

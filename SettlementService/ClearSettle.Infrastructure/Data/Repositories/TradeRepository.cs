@@ -1,5 +1,6 @@
 using ClearSettle.Domain.Entities; 
 using ClearSettle.Domain.Interfaces; 
+using Microsoft.EntityFrameworkCore;
 
 namespace ClearSettle.Infrastructure.Data.Repositories
 {
@@ -30,6 +31,13 @@ namespace ClearSettle.Infrastructure.Data.Repositories
             _context.Trades.Update(trade);
             
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<Trade>> GetPendingTradesForSettlementAsync(DateTime limitDate)
+        {
+            return await _context.Trades
+                .Where(t => t.Status == "Pending" && t.TradeDate <= limitDate)
+                .ToListAsync();
         }
     }
 }

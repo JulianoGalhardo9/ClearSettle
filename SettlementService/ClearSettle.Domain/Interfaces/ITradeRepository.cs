@@ -11,5 +11,7 @@ namespace ClearSettle.Domain.Interfaces
         Task UpdateAsync(Trade trade); 
 
         Task<IEnumerable<Trade>> GetPendingTradesForSettlementAsync(DateTime limitDate);
+
+        Task<IEnumerable<Trade>> GetAllAsync();
     }
 }

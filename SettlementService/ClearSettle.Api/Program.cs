@@ -16,6 +16,16 @@ builder.Services.AddTransient<RegisterPendingTradeUseCase>();
 
 builder.Services.AddControllers();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddOpenApiDocument(configure =>
 {
     configure.Title = "ClearSettle API";
@@ -31,6 +41,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
+app.UseCors("AllowReactApp");
 app.MapControllers();
 
 app.Run();

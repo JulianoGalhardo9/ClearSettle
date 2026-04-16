@@ -39,5 +39,12 @@ namespace ClearSettle.Infrastructure.Data.Repositories
                 .Where(t => t.Status == "Pending" && t.TradeDate <= limitDate)
                 .ToListAsync();
         }
+
+        public async Task<IEnumerable<Trade>> GetAllAsync()
+        {
+            return await _context.Trades
+                .OrderByDescending(t => t.TradeDate)
+                .ToListAsync();
+        }
     }
 }

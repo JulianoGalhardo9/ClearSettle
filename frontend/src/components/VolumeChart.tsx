@@ -35,13 +35,17 @@ export function VolumeChart({ trades }: Props) {
             cursor={{ fill: '#374151', opacity: 0.4 }}
             contentStyle={{ backgroundColor: '#111827', border: '1px solid #374151', borderRadius: '8px' }}
             itemStyle={{ color: '#60A5FA' }}
-            formatter={(value: any) => {
-              const formattedValue = new Intl.NumberFormat('pt-BR', { 
+            formatter={(value) => {
+              if (value === undefined || value === null) return ["R$ 0,00", "Volume Total"];
+              
+              const numericValue = Array.isArray(value) ? Number(value[0]) : Number(value);
+              
+              const formatted = new Intl.NumberFormat('pt-BR', { 
                 style: 'currency', 
                 currency: 'BRL' 
-              }).format(Number(value));
+              }).format(numericValue);
               
-              return [formattedValue, 'Volume Total'];
+              return [formatted, 'Volume Total'];
             }}
           />
           <Bar dataKey="volume" fill="#3B82F6" radius={[4, 4, 0, 0]} barSize={40} />

@@ -8,6 +8,19 @@
           "build/netstandard2.0/coverlet.collector.targets": {}
         }
       },
+      "FluentAssertions/8.9.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentAssertions.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/FluentAssertions.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "Microsoft.CodeCoverage/17.12.0": {
         "type": "package",
         "compile": {
@@ -411,6 +424,29 @@
         "build": {
           "build/net6.0/xunit.runner.visualstudio.props": {}
         }
+      },
+      "ClearSettle.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "ClearSettle.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ClearSettle.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ClearSettle.Application.dll": {}
+        }
+      },
+      "ClearSettle.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/ClearSettle.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ClearSettle.Domain.dll": {}
+        }
       }
     }
   },
@@ -483,6 +519,31 @@
         "coverlet-icon.png",
         "coverlet.collector.6.0.2.nupkg.sha512",
         "coverlet.collector.nuspec"
+      ]
+    },
+    "FluentAssertions/8.9.0": {
+      "sha512": "Y5RDjxaVlxWX2yy0X/ay1tJjSKMOtjepSb83mmfngFS63hm3LsoZNj6nhmImzm1ifRmpF9ouvmHjx9nNwnkpDg==",
+      "type": "package",
+      "path": "fluentassertions/8.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "FluentAssertions.png",
+        "LICENSE",
+        "fluentassertions.8.9.0.nupkg.sha512",
+        "fluentassertions.nuspec",
+        "lib/net47/FluentAssertions.dll",
+        "lib/net47/FluentAssertions.pdb",
+        "lib/net47/FluentAssertions.xml",
+        "lib/net6.0/FluentAssertions.dll",
+        "lib/net6.0/FluentAssertions.pdb",
+        "lib/net6.0/FluentAssertions.xml",
+        "lib/netstandard2.0/FluentAssertions.dll",
+        "lib/netstandard2.0/FluentAssertions.pdb",
+        "lib/netstandard2.0/FluentAssertions.xml",
+        "lib/netstandard2.1/FluentAssertions.dll",
+        "lib/netstandard2.1/FluentAssertions.pdb",
+        "lib/netstandard2.1/FluentAssertions.xml"
       ]
     },
     "Microsoft.CodeCoverage/17.12.0": {
@@ -932,10 +993,23 @@
         "xunit.runner.visualstudio.2.8.2.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "ClearSettle.Application/1.0.0": {
+      "type": "project",
+      "path": "../ClearSettle.Application/ClearSettle.Application.csproj",
+      "msbuildProject": "../ClearSettle.Application/ClearSettle.Application.csproj"
+    },
+    "ClearSettle.Domain/1.0.0": {
+      "type": "project",
+      "path": "../ClearSettle.Domain/ClearSettle.Domain.csproj",
+      "msbuildProject": "../ClearSettle.Domain/ClearSettle.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
+      "ClearSettle.Application >= 1.0.0",
+      "ClearSettle.Domain >= 1.0.0",
+      "FluentAssertions >= 8.9.0",
       "Microsoft.NET.Test.Sdk >= 17.12.0",
       "coverlet.collector >= 6.0.2",
       "xunit >= 2.9.2",
@@ -966,7 +1040,14 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Application/ClearSettle.Application.csproj": {
+              "projectPath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Application/ClearSettle.Application.csproj"
+            },
+            "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/ClearSettle.Domain.csproj": {
+              "projectPath": "/Users/julianogalhardo/ClearSettle/SettlementService/ClearSettle.Domain/ClearSettle.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -985,6 +1066,10 @@
       "net9.0": {
         "targetAlias": "net9.0",
         "dependencies": {
+          "FluentAssertions": {
+            "target": "Package",
+            "version": "[8.9.0, )"
+          },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[17.12.0, )"
